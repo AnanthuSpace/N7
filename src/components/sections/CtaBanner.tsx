@@ -1,25 +1,40 @@
-import { Button } from "@/components/ui/button";
-
 export function CtaBanner() {
   return (
-    <div className="section-container py-8 md:py-10">
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-n7-surface px-6 py-10 md:px-8 md:py-12">
-        <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-600/20 blur-3xl" />
-        <div className="relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <div className="max-w-xl">
-            <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
-              Take the full advantage of going paperless now.
-            </h3>
-            <p className="mt-2 text-sm text-slate-400">
-              Digitize your workflows and deliver a seamless banking experience.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Button variant="outline">Learn more</Button>
-            <Button>Get started</Button>
+    <section className="bg-black">
+      <div className="section-container py-12 md:py-16">
+        <div className="relative min-h-[240px] overflow-hidden rounded-3xl sm:min-h-[280px] md:min-h-[340px] lg:min-h-[380px]">
+          <img
+            src="/assets/CB7.png"
+            alt=""
+            className="absolute inset-0 h-full w-full rounded-3xl object-cover object-center"
+            aria-hidden
+          />
+          <div className="absolute inset-0 flex flex-col items-start justify-center gap-6 px-6 py-12 md:flex-row md:items-center md:justify-between md:px-12 md:py-16">
+            <div className="max-w-2xl">
+              <h3 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
+                Take the full advantage of going paper-less now.
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-white/80 md:text-lg lg:text-xl">
+                CB7 helps your financial institution improve the client experience, automate and optimize procedures, simplify banking operations .
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                className="font-chivo inline-flex h-12 items-center justify-center rounded-md border border-white bg-transparent px-8 text-base tracking-wide text-white transition-colors hover:bg-white/10"
+              >
+                CONTACT US
+              </button>
+              <button
+                type="button"
+                className="btn-gradient font-chivo inline-flex h-12 items-center justify-center rounded-md px-8 text-base tracking-wide text-white transition-opacity hover:opacity-90"
+              >
+                REQUEST DEMO
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

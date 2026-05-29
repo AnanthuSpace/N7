@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-
 const partners = [
   { name: "SHELLS", icon: "/assets/Shells.png" },
   { name: "SmartFinder", icon: "/assets/Smartfinder.png" },
@@ -21,10 +19,15 @@ export function Hero() {
             We drive innovation and growth, provide seamless customer experience and operational excellence.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button size="lg">REQUEST DEMO</Button>
             <button
               type="button"
-              className="inline-flex h-12 items-center justify-center rounded-md border border-white bg-[#2F2F2F] px-8 text-base font-medium tracking-wide text-white transition-colors hover:bg-white/10"
+              className="btn-gradient font-chivo inline-flex h-12 items-center justify-center rounded-md px-8 text-base tracking-wide text-white shadow-lg shadow-blue-600/25 transition-opacity hover:opacity-90"
+            >
+              REQUEST DEMO
+            </button>
+            <button
+              type="button"
+              className="font-chivo inline-flex h-12 items-center justify-center rounded-md border border-white bg-transparent px-8 text-base tracking-wide text-white transition-colors hover:bg-white/10"
             >
               CONTACT US
             </button>
@@ -48,12 +51,13 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="section-container mt-12 md:mt-16">
-        <div className="flex flex-wrap items-center justify-start gap-x-10 gap-y-6 border-y border-white/5 py-8 opacity-80">
+      <div className="section-container mt-20 md:mt-28">
+        <p className="mb-3 text-sm font-medium text-white">Trusted by:</p>
+        <div className="flex flex-wrap items-center justify-start gap-x-10 gap-y-6 border-y border-white/5 py-3 opacity-80">
           {partners.map(({ name, icon }) => (
             <span
               key={name}
-              className="inline-flex items-center gap-0 text-lg font-semibold tracking-wide text-slate-300 uppercase"
+              className="inline-flex items-center gap-0 text-sm font-semibold tracking-wide text-slate-300 uppercase"
             >
               <img src={icon} alt={`${name} logo`} className="h-7 w-7 object-contain" />
               {name}

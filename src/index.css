@@ -37,6 +37,19 @@
 }
 
 @layer utilities {
+  .font-chivo {
+    font-family: "Chivo Mono", ui-monospace, monospace;
+    font-weight: 500;
+  }
+
+  .btn-gradient {
+    background: linear-gradient(180deg, #00b4fd 0%, #003ace 100%);
+  }
+
+  .n7-gradient-border {
+    background: linear-gradient(180deg, #00b4fd 0%, #003ace 100%);
+  }
+
   .text-gradient-n7 {
     @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
   }
@@ -50,6 +63,14 @@
   }
 
   .section-container {
-    @apply mx-auto w-[80%] max-w-full px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-[90%] max-w-full px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-container-flush-right {
+    @apply ml-auto mr-0 w-[90%] max-w-none pl-4 pr-0 sm:pl-6 lg:pl-8;
+  }
+
+  .section-container-flush-left {
+    @apply mr-auto ml-0 w-[90%] max-w-none pr-4 pl-0 sm:pr-6 lg:pr-8;
   }
 }

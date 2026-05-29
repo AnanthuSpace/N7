@@ -34,7 +34,7 @@ export function Header() {
                 <button
                   type="button"
                   onClick={() => toggleDropdown(label, hasDropdown)}
-                  className="inline-flex items-center justify-center gap-1.5 text-center text-xs font-medium tracking-wide text-white transition-opacity hover:opacity-80"
+                  className="font-chivo inline-flex items-center justify-center gap-1.5 text-center text-xs tracking-wide text-white transition-opacity hover:opacity-80"
                   aria-expanded={hasDropdown ? activeDropdown === label : undefined}
                 >
                   {label}
@@ -71,7 +71,7 @@ export function Header() {
           <div className="flex items-center justify-end gap-2">
             <button
               type="button"
-              className="hidden rounded-md border border-white bg-[#2F2F2F] px-4 py-1.5 text-xs font-medium tracking-wide text-white transition-colors hover:bg-white/10 lg:inline-flex"
+              className="font-chivo hidden rounded-md border border-white bg-transparent px-4 py-1.5 text-xs tracking-wide text-white transition-colors hover:bg-white/10 lg:inline-flex"
             >
               REQUEST DEMO
             </button>
@@ -101,7 +101,7 @@ export function Header() {
                       setOpen(false);
                     }
                   }}
-                  className="flex w-full items-center justify-center gap-1.5 py-2 text-center text-xs font-medium tracking-wide text-white"
+                  className="font-chivo flex w-full items-center justify-center gap-1.5 py-2 text-center text-xs tracking-wide text-white"
                 >
                   {label}
                   {hasDropdown && (
@@ -117,7 +117,7 @@ export function Header() {
             </nav>
             <button
               type="button"
-              className="mt-3 w-full rounded-md border border-white bg-[#2F2F2F] px-4 py-2 text-xs font-medium tracking-wide text-white"
+              className="font-chivo mt-3 w-full rounded-md border border-white bg-transparent px-4 py-2 text-xs tracking-wide text-white"
               onClick={() => setOpen(false)}
             >
               REQUEST DEMO

@@ -1,4 +1,5 @@
 import { ChevronDown, Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +19,12 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-8 z-50 mt-8 flex justify-center">
+    <motion.header
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+      className="sticky top-8 z-50 mt-8 flex justify-center"
+    >
       <div className="w-[60%] max-w-full rounded-xl bg-[#2F2F2F] text-white">
         <div className="grid h-14 grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-6">
           <a
@@ -71,7 +77,7 @@ export function Header() {
           <div className="flex items-center justify-end gap-2">
             <button
               type="button"
-              className="font-chivo hidden rounded-md border border-white bg-transparent px-4 py-1.5 text-xs tracking-wide text-white transition-colors hover:bg-white/10 lg:inline-flex"
+              className="font-chivo hidden rounded-xl border border-white bg-transparent px-4 py-1.5 text-xs tracking-wide text-white transition-colors hover:bg-white/10 lg:inline-flex"
             >
               REQUEST DEMO
             </button>
@@ -117,7 +123,7 @@ export function Header() {
             </nav>
             <button
               type="button"
-              className="font-chivo mt-3 w-full rounded-md border border-white bg-transparent px-4 py-2 text-xs tracking-wide text-white"
+              className="font-chivo mt-3 w-full rounded-xl border border-white bg-transparent px-4 py-2 text-xs tracking-wide text-white"
               onClick={() => setOpen(false)}
             >
               REQUEST DEMO
@@ -125,6 +131,6 @@ export function Header() {
           </div>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 }

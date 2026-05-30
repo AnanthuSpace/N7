@@ -1,4 +1,6 @@
 import { Section } from "@/components/ui/section";
+import { fadeInUp, staggerContainer } from "@/lib/motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const features = [
@@ -43,9 +45,10 @@ export function FeatureGrid() {
   return (
     <div className="relative overflow-hidden">
       <div
-        className="pointer-events-none absolute top-1/2 right-0 z-0 aspect-square w-[24%] -translate-y-1/2 translate-x-1/4 rounded-full opacity-70 blur-[110px]"
+        className="pointer-events-none absolute top-1/2 right-0 z-0 aspect-square w-[24%] -translate-y-1/2 translate-x-1/4 rounded-full opacity-35 blur-[110px]"
         style={{
-          background: "linear-gradient(180deg, #0077B6 0%, #001E6C 100%)",
+          background:
+            "linear-gradient(180deg, var(--color-n7-gradient-from) 0%, var(--color-n7-gradient-to) 100%)",
         }}
       />
       <Section id="products">
@@ -56,16 +59,23 @@ export function FeatureGrid() {
           </h2>
           <button
             type="button"
-            className="font-chivo mt-8 inline-flex h-12 items-center justify-center rounded-md border border-white bg-transparent px-8 text-base tracking-wide text-white transition-colors hover:bg-white/10"
+            className="font-chivo mt-8 inline-flex h-12 items-center justify-center rounded-xl border border-white bg-transparent px-8 text-base tracking-wide text-white transition-colors hover:bg-white/10"
           >
             REQUEST DEMO
           </button>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <motion.div
+          className="grid gap-6 sm:grid-cols-2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={staggerContainer}
+        >
           {features.map(({ icon, title, sub, description }, index) => (
-            <article
+            <motion.article
               key={index}
+              variants={fadeInUp}
               className="group flex min-h-[320px] flex-col justify-between rounded-2xl bg-n7-surface/50 p-6 transition-colors hover:bg-n7-card/80"
             >
               <div>
@@ -76,7 +86,7 @@ export function FeatureGrid() {
                     className="h-12 w-12 object-contain"
                   />
                   {sub && (
-                    <span className="rounded-full bg-blue-600/15 px-3 py-1 text-xs font-medium text-blue-300 ring-1 ring-blue-500/20">
+                    <span className="rounded-full bg-n7-highlight/10 px-3 py-1 text-xs font-medium text-sky-400/90 ring-1 ring-n7-highlight/15">
                       {sub}
                     </span>
                   )}
@@ -91,14 +101,14 @@ export function FeatureGrid() {
 
               <a
                 href="#"
-                className="mt-6 flex w-full items-center justify-between text-sm font-medium text-blue-400 uppercase tracking-wide transition-colors group-hover:text-blue-300"
+                className="mt-6 flex w-full items-center justify-between text-sm font-medium text-n7-highlight uppercase tracking-wide transition-colors group-hover:opacity-80"
               >
                 <span className="underline underline-offset-4">LEARN MORE</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
       </Section>
     </div>

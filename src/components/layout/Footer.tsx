@@ -1,92 +1,174 @@
-import { Button } from "@/components/ui/button";
-import { Linkedin, Twitter } from "lucide-react";
-
-const footerColumns = [
+import type { ReactNode } from "react";
+import { useId } from "react";
+import { fadeInUp, staggerContainer, viewport } from "@/lib/motion";
+import { motion } from "framer-motion";
+const locations = [
   {
-    title: "Product",
-    links: ["Core Banking", "Payments", "Cards", "Compliance"],
+    title: "London",
+    description:
+      "Linktia Infosystems Ltd – CB7, 26 Main Road Sundridge, TN14 6EP, England, United Kingdom.",
   },
   {
-    title: "Solutions",
-    links: ["Neobanks", "Fintech", "Enterprise", "Developers"],
+    title: "Dubai",
+    description:
+      "Linktia Infosystems Ltd – CB7, Jumeirah Business Center 5 Cluster W, Jumeirah Lakes Towers, Dubai, United Arab Emirates.",
   },
   {
-    title: "Company",
-    links: ["About", "Careers", "Blog", "Contact"],
-  },
-  {
-    title: "Legal",
-    links: ["Privacy", "Terms", "Security", "Cookies"],
+    title: "Pune",
+    description:
+      "Linktia Infosystems Ltd – CB7, Nirmal, Anand Nagar, Suncity Road, Pune, Maharashtra, 411041, India.",
   },
 ];
 
+const solutionsLinks = [
+  "Core Banking CB7",
+  "Digital Banking N&",
+  "Open Bannking",
+  "Loan Origination System",
+  "Loan Management System",
+  "Digital Transformation",
+];
+
+const n7BankingLinks = [
+  "About Us",
+  "Solutions",
+  "Contact",
+  "Company",
+  "Careers",
+  "Insights",
+  "Core Team",
+  "Brand Center",
+];
+
+const socialLinks = ["Linkedin", "X"];
+
+export function FooterGradientArrow() {
+  const gradientId = useId();
+
+  return (
+    <svg
+      className="h-4 w-4 shrink-0"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+    >
+      <defs>
+        <linearGradient
+          id={gradientId}
+          x1="12"
+          y1="4"
+          x2="12"
+          y2="20"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="var(--color-n7-gradient-from)" />
+          <stop offset="1" stopColor="var(--color-n7-gradient-to)" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M5 12h14M12 5l7 7-7 7"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function FooterLinkColumn({ title, links }: { title: string; links: string[] }) {
+  return (
+    <div>
+      <h4 className="text-base font-semibold text-white md:text-lg">{title}</h4>
+      <ul className="mt-4 space-y-2.5">
+        {links.map((link) => (
+          <li key={link}>
+            <a
+              href="#"
+              className="group flex w-full items-center justify-between gap-3 text-sm text-slate-400 transition-colors hover:text-white md:text-base"
+            >
+              <span>{link}</span>
+              <FooterGradientArrow />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function FooterGridRow({ children }: { children: ReactNode }) {
+  return (
+    <div className="grid gap-8 md:grid-cols-[2fr_1fr_1fr_1fr] md:gap-10 lg:gap-12">
+      {children}
+    </div>
+  );
+}
+
+function FooterCopyrightRow() {
+  return (
+    <div className="grid gap-8 border-t border-white/5 pt-8 md:grid-cols-[2fr_3fr] md:gap-10 lg:gap-12">
+      <div aria-hidden />
+      <p className="text-xs leading-relaxed text-slate-500 md:text-sm">
+        Copyright © 2022 by Linktia Infosystems Limited — [CB7 and N7 as
+        Commercial Brand] — [Registered under the Companies Act 2006 in England
+        and Wales | Number of Incorporation 13100992]
+      </p>
+    </div>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-n7-bg">
-      <div className="section-container border-b border-white/5 py-12 md:py-16">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+    <motion.footer className="relative overflow-hidden border-t border-white/5 bg-n7-bg">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/2 left-0 z-0 aspect-square w-[28%] max-w-lg -translate-x-1/3 -translate-y-1/2 rounded-full opacity-30 blur-[120px] md:w-[32%] md:opacity-40"
+        style={{
+          background:
+            "linear-gradient(180deg, var(--color-n7-gradient-from) 0%, var(--color-n7-gradient-to) 100%)",
+        }}
+      />
+      <motion.div
+        className="section-container relative z-10 space-y-12 py-12 md:space-y-16 md:py-16"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+      >
+        <motion.div variants={fadeInUp}>
+          <FooterGridRow>
           <div>
-            <h3 className="max-w-md text-2xl font-semibold tracking-tight md:text-3xl">
-              Take the full advantage of going paperless now.
-            </h3>
-            <p className="mt-2 max-w-sm text-sm text-slate-400">
-              Start building your digital bank with N7 today.
+            <p className="text-gradient-n7 text-8xl font-bold leading-none tracking-tighter md:text-9xl lg:text-[11rem] xl:text-[14rem]">
+              N7
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Button variant="outline">Learn more</Button>
-            <Button>Get started</Button>
-          </div>
-        </div>
-      </div>
-
-      <div className="section-container py-12 md:py-16">
-        <p className="text-6xl font-bold tracking-tighter text-gradient-n7 md:text-8xl lg:text-9xl">
-          N7
-        </p>
-
-        <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4">
-          {footerColumns.map((col) => (
-            <div key={col.title}>
-              <h4 className="mb-4 text-sm font-semibold text-white">{col.title}</h4>
-              <ul className="space-y-2">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-slate-400 transition-colors hover:text-white"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {locations.map((location) => (
+            <div key={location.title}>
+              <h4 className="text-base font-semibold text-white md:text-lg">
+                {location.title}
+              </h4>
+              <p className="mt-3 text-sm leading-relaxed text-slate-400 md:text-base">
+                {location.description}
+              </p>
             </div>
           ))}
-        </div>
+        </FooterGridRow>
+        </motion.div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
-          <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} N7. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="#"
-              className="text-slate-400 transition-colors hover:text-white"
-              aria-label="Twitter"
-            >
-              <Twitter className="h-5 w-5" />
-            </a>
-            <a
-              href="#"
-              className="text-slate-400 transition-colors hover:text-white"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+        <motion.div variants={fadeInUp}>
+        <FooterGridRow>
+          <div aria-hidden />
+          <FooterLinkColumn title="Solutions" links={solutionsLinks} />
+          <FooterLinkColumn title="N7 Banking" links={n7BankingLinks} />
+          <FooterLinkColumn title="Our Socials" links={socialLinks} />
+        </FooterGridRow>
+        </motion.div>
+
+        <motion.div variants={fadeInUp}>
+        <FooterCopyrightRow />
+        </motion.div>
+      </motion.div>
+    </motion.footer>
   );
 }

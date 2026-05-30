@@ -1,3 +1,4 @@
+import { fadeInUp, viewport } from "@/lib/motion";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -7,21 +8,38 @@ type SectionProps = {
   className?: string;
   id?: string;
   light?: boolean;
+  animate?: boolean;
 };
 
-export function Section({ children, className, id, light }: SectionProps) {
+export function Section({
+  children,
+  className,
+  id,
+  light,
+  animate = true,
+}: SectionProps) {
+  const classes = cn(
+    "relative py-14 md:py-20",
+    light ? "bg-gradient-to-b from-slate-100 to-slate-200 text-slate-900" : "",
+    className,
+  );
+
+  if (!animate) {
+    return (
+      <section id={id} className={classes}>
+        {children}
+      </section>
+    );
+  }
+
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={cn(
-        "relative py-14 md:py-20",
-        light ? "bg-gradient-to-b from-slate-100 to-slate-200 text-slate-900" : "",
-        className,
-      )}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+      variants={fadeInUp}
+      className={classes}
     >
       {children}
     </motion.section>

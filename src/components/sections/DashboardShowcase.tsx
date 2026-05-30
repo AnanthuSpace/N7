@@ -73,7 +73,7 @@ function LaptopOutline({
           }`}
       >
         <div
-          className={`h-10 bg-black ${isRight
+          className={`h-10 bg-n7-bg ${isRight
             ? "rounded-tl-[4px] rounded-tr-[4px] rounded-br-[4px] rounded-bl-[calc(1.75rem-2px)]"
             : "rounded-tl-[4px] rounded-tr-[4px] rounded-bl-[4px] rounded-br-[calc(1.75rem-2px)]"
             }`}
@@ -98,13 +98,13 @@ export function DashboardShowcase() {
             <div className="mt-8 flex flex-col items-start gap-4">
               <button
                 type="button"
-                className="btn-gradient font-chivo inline-flex h-12 items-center justify-center rounded-md px-8 text-base tracking-wide text-white shadow-lg shadow-blue-600/25 transition-opacity hover:opacity-90"
+                className="btn-gradient font-chivo inline-flex h-12 items-center justify-center rounded-xl px-8 text-base tracking-wide text-white transition-opacity hover:opacity-90"
               >
                 REQUEST DEMO
               </button>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 uppercase tracking-wide transition-colors hover:text-blue-300"
+                className="inline-flex items-center gap-2 text-sm font-medium text-n7-highlight uppercase tracking-wide transition-colors hover:opacity-80"
               >
                 <span className="underline underline-offset-4">LEARN MORE</span>
                 <ArrowRight className="h-4 w-4" />

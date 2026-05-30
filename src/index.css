@@ -2,12 +2,15 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-n7-bg: #000000;
-  --color-n7-surface: #0a0a0a;
-  --color-n7-card: #111111;
+  --color-n7-bg: #020617;
+  --color-n7-surface: #0f172a;
+  --color-n7-card: #01141b;
   --color-n7-border: #1e293b;
-  --color-n7-accent: #2563eb;
-  --color-n7-accent-hover: #1d4ed8;
+  --color-n7-accent: #1d4ed8;
+  --color-n7-accent-hover: #1e40af;
+  --color-n7-highlight: #0284c7;
+  --color-n7-gradient-from: #0284c7;
+  --color-n7-gradient-to: #1e3a8a;
   --color-n7-muted: #94a3b8;
   --color-n7-light: #f1f5f9;
 }
@@ -43,21 +46,34 @@
   }
 
   .btn-gradient {
-    background: linear-gradient(180deg, #00b4fd 0%, #003ace 100%);
+    background: linear-gradient(
+      180deg,
+      var(--color-n7-gradient-from) 0%,
+      var(--color-n7-gradient-to) 100%
+    );
   }
 
   .n7-gradient-border {
-    background: linear-gradient(180deg, #00b4fd 0%, #003ace 100%);
+    background: linear-gradient(
+      180deg,
+      var(--color-n7-gradient-from) 0%,
+      var(--color-n7-gradient-to) 100%
+    );
   }
 
   .text-gradient-n7 {
-    @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
+    background: linear-gradient(
+      180deg,
+      var(--color-n7-gradient-from) 0%,
+      var(--color-n7-gradient-to) 100%
+    );
+    @apply bg-clip-text text-transparent;
   }
 
   .glow-blue {
     background: radial-gradient(
       ellipse 60% 50% at 50% 50%,
-      rgb(37 99 235 / 0.35),
+      rgb(30 64 175 / 0.18),
       transparent 70%
     );
   }

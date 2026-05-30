@@ -20,10 +20,9 @@ function App() {
         <CtaBanner />
         <ScrollingTicker />
         <MobileShowcase />
-        <CtaBanner />
         <ServicesGrid />
         <CaseStudies />
-        <CtaBanner />
+        <CtaBanner transparent />
       </main>
       <Footer />
     </div>
